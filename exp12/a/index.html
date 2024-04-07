@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="input-group">
+            <input type="text" id="num1" placeholder="Enter first number">
+        </div>
+        <div class="input-group">
+            <input type="text" id="num2" placeholder="Enter second number">
+        </div>
+        <button onclick="add()">Add</button>
+        <button onclick="subtract()">Subtract</button>
+        <button onclick="multiply()">Multiply</button>
+        <button onclick="divide()">Divide</button>
+        <p id="operation"></p>
+        <p class="result" id="result"></p>
+    </div>
+    <p class="watermark">Ziya</p>
+    <script>
+        function add() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById("operation").innerHTML = "Add";
+            document.getElementById('result').innerHTML = num1 + num2;
+        }
+
+        function subtract() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById("operation").innerHTML = "Subtract";
+            document.getElementById('result').innerHTML = num1 - num2;
+        }
+
+        function multiply() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById("operation").innerHTML = "Multiply";
+            document.getElementById('result').innerHTML = num1 * num2;
+        }
+
+        function divide() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById("operation").innerHTML = "Divide";
+            if (num2 === 0) {
+                document.getElementById('result').innerHTML = "Cannot divide by zero";
+            } else {
+                document.getElementById('result').innerHTML = num1 / num2;
+            }
+        }
+    </script>
+</body>
+
+</html>
