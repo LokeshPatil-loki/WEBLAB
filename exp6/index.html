@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML - Convert numbers to words using JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: rgba(118, 118, 118, 0.603);
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Convert Numbers to Words</h1>
+        <input type="text" id="numberInput" onkeypress="return isNumberKey(event)" placeholder="Enter a number">
+        <button id="btn-convert">Convert</button>
+        <div id="result"></div>
+        <div class="watermark">ZIYA</div>
+
+    </div>
+    <script>
+        const btnConvert = document.querySelector("#btn-convert");
+        const numberInput = document.querySelector("#numberInput");
+        const result = document.querySelector("#result");
+        btnConvert.addEventListener("click", e => {
+            result.innerHTML = numberToWords(numberInput.value);
+        })
+        function numberToWords(num) {
+            const units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+            const teens = ['', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+            const tens = ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+            if (num === 0) {
+                return 'zero';
+            }
+
+            function convertLessThanOneHundred(number) {
+                if (number < 10) {
+                    return units[number];
+                } else if (number >= 11 && number <= 19) {
+                    return teens[number - 10];
+                } else {
+                    const tensDigit = Math.floor(number / 10);
+                    const onesDigit = number % 10;
+                    return tens[tensDigit] + ' ' + units[onesDigit];
+                }
+            }
+
+            if (num < 100) {
+                return convertLessThanOneHundred(num);
+            }
+
+            const hundredsDigit = Math.floor(num / 100);
+            const remainder = num % 100;
+            const hundredsWord = units[hundredsDigit] + ' hundred';
+
+            if (remainder === 0) {
+                return hundredsWord;
+            } else {
+                return hundredsWord + ' and ' + convertLessThanOneHundred(remainder);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Country Capitals</title>
+    <style>
+        #capital {
+            color: #ff6347;
+            font-weight: bold;
+            font-style: italic;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            transform: translate(-20%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: rgba(118, 118, 118, 0.603);
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Select a Country</h1>
+    <select id="countryList" onchange="displayCapital()">
+        <option value="">--Select a Country--</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="India">India</option>
+        <option value="Japan">Japan</option>
+        <option value="Australia">Australia</option>
+    </select>
+    <p>Capital: <span id="capital"></span></p>
+    <div class="watermark">ZIYA</div>
+
+    <script>
+        function displayCapital() {
+            var countryList = document.getElementById("countryList");
+            var capitalSpan = document.getElementById("capital");
+            var selectedCountry = countryList.value;
+
+            switch (selectedCountry) {
+                case "USA":
+                    capitalSpan.textContent = "Washington, D.C.";
+                    break;
+                case "Canada":
+                    capitalSpan.textContent = "Ottawa";
+                    break;
+                case "India":
+                    capitalSpan.textContent = "New Delhi";
+                    break;
+                case "Japan":
+                    capitalSpan.textContent = "Tokyo";
+                    break;
+                case "Australia":
+                    capitalSpan.textContent = "Canberra";
+                    break;
+                default:
+                    capitalSpan.textContent = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

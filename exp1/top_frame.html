@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Top Frame</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 5px;
+            background-color: #555;
+        }
+
+        a:hover {
+            background-color: #777;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            right: 20%;
+            transform: translate(-20%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Online Book Store</h1>
+    <a href="index.html" target="_top">Home</a> |
+    <a href="login.html" target="right">Login</a> |
+    <a href="registration.html" target="right">Registration</a> |
+    <a href="catalogue.html" target="right">Catalogue</a>
+    <div class="watermark">ZIYA</div>
+</body>
+
+</html>

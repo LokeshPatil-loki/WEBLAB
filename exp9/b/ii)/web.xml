@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<web-app>
+<servlet>
+    <servlet-name>Date</servlet-name>
+    <servlet-class>DateSrv</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>Date</servlet-name>
+    <url-pattern>/date</url-pattern>
+</servlet-mapping>
+</web-app>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Pop-up Boxes</title>
+</head>
+
+<body>
+    <h1>JavaScript Pop-up Boxes</h1>
+    <h2>a) Click on Display Date button to display date in the textbox</h2>
+    <input type="text" id="dateInput" readonly>
+    <button onclick="displayDate()">Display Date</button>
+
+    <h2>b) Enter a number to get its factorial</h2>
+    <button onclick="getFactorial()">Get Factorial</button>
+
+    <h2>c) Enter a number to get its multiplication table</h2>
+    <button onclick="getMultiplicationTable()">Get Multiplication Table</button>
+
+    <h2>d) Enter a number and add other numbers to get the sum</h2>
+    <button onclick="getSum()">Get Sum</button>
+
+    <script>
+        function displayDate() {
+            var dateInput = document.getElementById("dateInput");
+            dateInput.value = new Date();
+        }
+
+        function getFactorial() {
+            var n = prompt("Enter a number to get its factorial:");
+            if (n !== null && !isNaN(n)) {
+                n = parseInt(n);
+                var factorial = 1;
+                for (var i = 1; i <= n; i++) {
+                    factorial *= i;
+                }
+                alert("Factorial of " + n + " is: " + factorial);
+            } else {
+                alert("Invalid input. Please enter a number.");
+            }
+        }
+
+        function getMultiplicationTable() {
+            var n = prompt("Enter a number to get its multiplication table:");
+            if (n !== null && !isNaN(n)) {
+                n = parseInt(n);
+                var table = "";
+                for (var i = 1; i <= 10; i++) {
+                    table += n + " x " + i + " = " + (n * i) + "\n";
+                }
+                alert("Multiplication Table of " + n + ":\n\n" + table);
+            } else {
+                alert("Invalid input. Please enter a number.");
+            }
+        }
+
+        function getSum() {
+            var n = prompt("Enter the initial number:");
+            if (n !== null && !isNaN(n)) {
+                n = parseInt(n);
+                var sum = n;
+                while (confirm("Do you want to add another number?")) {
+                    var nextNumber = prompt("Enter the next number:");
+                    if (nextNumber !== null && !isNaN(nextNumber)) {
+                        nextNumber = parseInt(nextNumber);
+                        sum += nextNumber;
+                    } else {
+                        alert("Invalid input. Skipping this number.");
+                    }
+                }
+                alert("The sum of the numbers is: " + sum);
+            } else {
+                alert("Invalid input. Please enter a number.");
+            }
+        }
+    </script>
+</body>
+
+</html>

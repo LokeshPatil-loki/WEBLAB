@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<web-app>
+<!-- web.xml -->
+<servlet>
+    <servlet-name>abc</servlet-name>
+    <servlet-class>VoterSrv</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>abc</servlet-name>
+    <url-pattern>/check</url-pattern>
+</servlet-mapping>
+</web-app>
